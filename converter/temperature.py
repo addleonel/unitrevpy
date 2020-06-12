@@ -3,7 +3,10 @@
 from converter.unit import Unit
 
 class Temperature(Unit):
-
+    """
+    units used
+    celsius, kelvin, fahrenheit
+    """
     def __init__(self, value):
         super(Temperature, self).__init__(value)
 

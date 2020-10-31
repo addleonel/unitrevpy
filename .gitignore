@@ -1,3 +1,3 @@
 env/
 .idea/
-converter/__pycache__/
+*/__pycache__/

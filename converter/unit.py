@@ -1,13 +1,13 @@
 # This is principal class or mother class
-import numpy as np
+# import numpy as np
 
 class Unit:
 
     def __init__(self, value):
         if isinstance(value, (int, float)):
             self.value = float(value)
-        elif isinstance(value, (list, tuple)):
-            self.value = np.array(value)
+        # elif isinstance(value, (list, tuple)):
+        #     self.value = np.array(value)
         else:
             raise TypeError("Incorrect type")
 

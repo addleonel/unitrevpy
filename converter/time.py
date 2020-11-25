@@ -1,6 +1,6 @@
 # Time units
-
-from converter.unit import Unit
+import numpy as np
+from .unit import Unit
 
 class Time(Unit):
     """
@@ -9,34 +9,41 @@ class Time(Unit):
     """
     def __init__(self, value, *args):
         super(Time, self).__init__(value)
-        self.__convert_value_to_second = args[0]
-        self.__convert_value_to_minute = args[1]
-        self.__convert_value_to_hour = args[2]
-        self.__convert_value_to_day = args[3]
-        self.__convert_value_to_week = args[4]
-        self.__convert_value_to_month = args[5]
-        self.__convert_value_to_year = args[6]
+        if args:
+            self.__convert_value_to_second = args[0]
+            self.__convert_value_to_minute = args[1]
+            self.__convert_value_to_hour = args[2]
+            self.__convert_value_to_day = args[3]
+            self.__convert_value_to_week = args[4]
+            self.__convert_value_to_month = args[5]
+            self.__convert_value_to_year = args[6]
+
+    def __operator(self, convert_value):
+        if isinstance(self.value, list):
+            self.value = np.array(self.value)
+            return list(self.value*convert_value)
+        return self.value*convert_value
 
     def to_second(self):
-        return self.value*self.__convert_value_to_second
+        return self.__operator(self.__convert_value_to_second)
 
     def to_minute(self):
-        return self.value*self.__convert_value_to_minute
+        return self.__operator(self.__convert_value_to_minute)
 
     def to_hour(self):
-        return self.value*self.__convert_value_to_hour
+        return self.__operator(self.__convert_value_to_hour)
 
     def to_day(self):
-        return self.value*self.__convert_value_to_day
+        return self.__operator(self.__convert_value_to_day)
 
     def to_week(self):
-        return self.value*self.__convert_value_to_week
+        return self.__operator(self.__convert_value_to_week)
 
     def to_month(self):
-        return self.value*self.__convert_value_to_month
+        return self.__operator(self.__convert_value_to_month)
 
     def to_year(self):
-        return self.value*self.__convert_value_to_year
+        return self.__operator(self.__convert_value_to_year)
 
 
 class Second(Time):

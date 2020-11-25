@@ -1,6 +1,6 @@
 # Volume units
-
-from converter.unit import Unit
+import numpy as np
+from .unit import Unit
 
 class Volume(Unit):
 
@@ -13,98 +13,105 @@ class Volume(Unit):
     """
     def __init__(self, value, *args):
         super(Volume, self).__init__(value)
-        self.__convert_value_to_cubic_meter = args[0]
-        self.__convert_value_to_cubic_kilometer = args[1]
-        self.__convert_value_to_cubic_centimeter = args[2]
-        self.__convert_value_to_cubic_millimeter = args[3]
-        self.__convert_value_to_liter = args[4]
-        self.__convert_value_to_milliliter = args[5]
-        self.__convert_value_to_us_gallon = args[6]
-        self.__convert_value_to_us_quart = args[7]
-        self.__convert_value_to_us_pint = args[8]
-        self.__convert_value_to_us_cup = args[9]
-        self.__convert_value_to_us_fluid_ounce = args[10]
-        self.__convert_value_to_us_table_spoon = args[11]
-        self.__convert_value_to_us_tea_spoon = args[12]
-        self.__convert_value_to_imperial_gallon = args[13]
-        self.__convert_value_to_imperial_pint = args[14]
-        self.__convert_value_to_imperial_quart = args[15]
-        self.__convert_value_to_imperial_fluid_ounce = args[16]
-        self.__convert_value_to_imperial_table_spoon = args[17]
-        self.__convert_value_to_imperial_tea_spoon = args[18]
-        self.__convert_value_to_cubic_mile = args[19]
-        self.__convert_value_to_cubic_yard = args[20]
-        self.__convert_value_to_cubic_foot = args[21]
-        self.__convert_value_to_cubic_inch = args[22]
+        if args:
+            self.__convert_value_to_cubic_meter = args[0]
+            self.__convert_value_to_cubic_kilometer = args[1]
+            self.__convert_value_to_cubic_centimeter = args[2]
+            self.__convert_value_to_cubic_millimeter = args[3]
+            self.__convert_value_to_liter = args[4]
+            self.__convert_value_to_milliliter = args[5]
+            self.__convert_value_to_us_gallon = args[6]
+            self.__convert_value_to_us_quart = args[7]
+            self.__convert_value_to_us_pint = args[8]
+            self.__convert_value_to_us_cup = args[9]
+            self.__convert_value_to_us_fluid_ounce = args[10]
+            self.__convert_value_to_us_table_spoon = args[11]
+            self.__convert_value_to_us_tea_spoon = args[12]
+            self.__convert_value_to_imperial_gallon = args[13]
+            self.__convert_value_to_imperial_pint = args[14]
+            self.__convert_value_to_imperial_quart = args[15]
+            self.__convert_value_to_imperial_fluid_ounce = args[16]
+            self.__convert_value_to_imperial_table_spoon = args[17]
+            self.__convert_value_to_imperial_tea_spoon = args[18]
+            self.__convert_value_to_cubic_mile = args[19]
+            self.__convert_value_to_cubic_yard = args[20]
+            self.__convert_value_to_cubic_foot = args[21]
+            self.__convert_value_to_cubic_inch = args[22]
+
+    def __operator(self, convert_value):
+        if isinstance(self.value, list):
+            self.value = np.array(self.value)
+            return list(self.value * convert_value)
+        return self.value*convert_value
 
     def to_cubic_meter(self):
-        return self.value*self.__convert_value_to_cubic_meter
+        return self.__operator(self.__convert_value_to_cubic_meter)
 
     def to_kilometer(self):
-        return self.value*self.__convert_value_to_cubic_kilometer
+        return self.__operator(self.__convert_value_to_cubic_kilometer)
 
     def to_cubic_centimeter(self):
-        return self.value*self.__convert_value_to_cubic_centimeter
+        return self.__operator(self.__convert_value_to_cubic_centimeter)
 
     def to_cubic_millimeter(self):
-        return self.value*self.__convert_value_to_cubic_millimeter
+        return self.__operator(self.__convert_value_to_cubic_millimeter)
 
     def to_liter(self):
-        return self.value*self.__convert_value_to_liter
+        return self.__operator(self.__convert_value_to_liter)
 
     def to_milliliter(self):
-        return self.value*self.__convert_value_to_milliliter
+        return self.__operator(self.__convert_value_to_milliliter)
 
     def to_us_gallon(self):
-        return self.value*self.__convert_value_to_us_gallon
+        return self.__operator(self.__convert_value_to_us_gallon)
 
     def to_us_quart(self):
-        return self.value*self.__convert_value_to_us_quart
+        return self.__operator(self.__convert_value_to_us_quart)
 
     def to_us_pint(self):
-        return self.value*self.__convert_value_to_us_pint
+        return self.__operator(self.__convert_value_to_us_pint)
 
     def to_us_cup(self):
-        return self.value*self.__convert_value_to_us_cup
+        return self.__operator(self.__convert_value_to_us_cup)
 
     def to_us_fluid_ounce(self):
-        return self.value*self.__convert_value_to_us_fluid_ounce
+        return self.__operator(self.__convert_value_to_us_fluid_ounce)
 
     def to_us_table_spoon(self):
-        return self.value*self.__convert_value_to_us_table_spoon
+        return self.__operator(self.__convert_value_to_us_table_spoon)
 
     def to_us_tea_spoon(self):
-        return self.value*self.__convert_value_to_us_tea_spoon
+        return self.__operator(self.__convert_value_to_us_tea_spoon)
 
     def to_imperial_gallon(self):
-        return self.value*self.__convert_value_to_imperial_gallon
+        return self.__operator(self.__convert_value_to_imperial_gallon)
 
     def to_imperial_quart(self):
-        return self.value*self.__convert_value_to_imperial_quart
+        return self.__operator(self.__convert_value_to_imperial_quart)
 
     def to_imperial_pint(self):
-        return self.value*self.__convert_value_to_imperial_pint
+        return self.__operator(self.__convert_value_to_imperial_pint)
 
     def to_imperial_fluid_ounce(self):
-        return self.value*self.__convert_value_to_imperial_fluid_ounce
+        return self.__operator(self.__convert_value_to_imperial_fluid_ounce)
 
     def to_imperial_table_spoon(self):
-        return self.value*self.__convert_value_to_imperial_table_spoon
+        return self.__operator(self.__convert_value_to_imperial_table_spoon)
 
     def to_imperial_tea_spoon(self):
-        return self.value*self.__convert_value_to_imperial_tea_spoon
+        return self.__operator(self.__convert_value_to_imperial_tea_spoon)
 
     def to_cubic_mile(self):
-        return self.value*self.__convert_value_to_cubic_mile
+        return self.__operator(self.__convert_value_to_cubic_mile)
 
     def to_cubic_yard(self):
-        return self.value*self.__convert_value_to_cubic_yard
+        return self.__operator(self.__convert_value_to_cubic_yard)
 
     def to_cubic_foot(self):
-        return self.value*self.__convert_value_to_cubic_foot
+        return self.__operator(self.__convert_value_to_cubic_foot)
 
     def to_cubic_inch(self):
-        return self.value*self.__convert_value_to_cubic_inch
+        return self.__operator(self.__convert_value_to_cubic_inch)
 
 
 class CubicMeter(Volume):

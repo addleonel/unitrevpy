@@ -1,6 +1,6 @@
 # Weight units
-
-from converter.unit import Unit
+import numpy as np
+from .unit import Unit
 
 class Weight(Unit):
     """
@@ -9,46 +9,53 @@ class Weight(Unit):
     """
     def __init__(self, value, *args):
         super(Weight, self).__init__(value)
-        self.__convert_value_to_kilogram = args[0]
-        self.__convert_value_to_gram = args[1]
-        self.__convert_value_to_milligram = args[2]
-        self.__convert_value_to_metric_ton = args[3]
-        self.__convert_value_to_long_ton = args[4]
-        self.__convert_value_to_short_ton = args[5]
-        self.__convert_value_to_pound = args[6]
-        self.__convert_value_to_ounce = args[7]
-        self.__convert_value_to_carat = args[8]
-        self.__convert_value_to_atomic_mass_unit = args[9]
+        if args:
+            self.__convert_value_to_kilogram = args[0]
+            self.__convert_value_to_gram = args[1]
+            self.__convert_value_to_milligram = args[2]
+            self.__convert_value_to_metric_ton = args[3]
+            self.__convert_value_to_long_ton = args[4]
+            self.__convert_value_to_short_ton = args[5]
+            self.__convert_value_to_pound = args[6]
+            self.__convert_value_to_ounce = args[7]
+            self.__convert_value_to_carat = args[8]
+            self.__convert_value_to_atomic_mass_unit = args[9]
+
+    def __operator(self, convert_value):
+        if isinstance(self.value, list):
+            self.value = np.array(self.value)
+            return list(self.value*convert_value)
+        return self.value*convert_value
 
     def to_kilogram(self):
-        return self.value*self.__convert_value_to_kilogram
+        return self.__operator(self.__convert_value_to_kilogram)
 
     def to_gram(self):
-        return self.value*self.__convert_value_to_gram
+        return self.__operator(self.__convert_value_to_gram)
 
     def to_milligram(self):
-        return self.value*self.__convert_value_to_milligram
+        return self.__operator(self.__convert_value_to_milligram)
 
     def to_metric_ton(self):
-        return self.value*self.__convert_value_to_metric_ton
+        return self.__operator(self.__convert_value_to_metric_ton)
 
     def to_long_ton(self):
-        return self.value*self.__convert_value_to_long_ton
+        return self.__operator(self.__convert_value_to_long_ton)
 
     def to_short_ton(self):
-        return self.value*self.__convert_value_to_short_ton
+        return self.__operator(self.__convert_value_to_short_ton)
 
     def to_pound(self):
-        return self.value*self.__convert_value_to_pound
+        return self.__operator(self.__convert_value_to_pound)
 
     def to_ounce(self):
-        return self.value*self.__convert_value_to_ounce
+        return self.__operator(self.__convert_value_to_ounce)
 
     def to_carat(self):
-        return self.value*self.__convert_value_to_carat
+        return self.__operator(self.__convert_value_to_carat)
 
     def to_atomic_mass_unit(self):
-        return self.value*self.__convert_value_to_atomic_mass_unit
+        return self.__operator(self.__convert_value_to_atomic_mass_unit)
 
 
 class Kilogram(Weight):

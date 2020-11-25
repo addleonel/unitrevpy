@@ -1,5 +1,7 @@
 # Length units
+import numpy as np
 from .unit import Unit
+
 
 class Length(Unit):
     """
@@ -19,42 +21,47 @@ class Length(Unit):
     def __repr__(self):
         return str(self.value)
 
+    def __operator(self, convert_value):
+        if isinstance(self.value, list):
+            self.value = np.array(self.value)
+            return list(self.value*convert_value)
+        return self.value*convert_value
+
     def to_meter(self):
         """
         This method converts the value to Meter unit
         """
-        # return super(Length, self).operator(self.__value_convert_to_meter)
-        return self.value*self.__value_convert_to_meter
+        return self.__operator(self.__value_convert_to_meter)
 
     def to_yard(self):
         """
         This method converts the value to Yard unit
         """
-        return self.value*self.__value_convert_to_yard
+        return self.__operator(self.__value_convert_to_yard)
 
     def to_mile(self):
         """
         This method converts the value to Mile unit
         """
-        return self.value*self.__value_convert_to_mile
+        return self.__operator(self.__value_convert_to_mile)
 
     def to_foot(self):
         """
         This method converts the value to Foot unit
         """
-        return self.value*self.__value_convert_to_foot
+        return self.__operator(self.__value_convert_to_foot)
 
     def to_inch(self):
         """
         This method converts the value to Inch unit
         """
-        return self.value*self.__value_convert_to_inch
+        return self.__operator(self.__value_convert_to_inch)
 
     def to_light_year(self):
         """
         This method converts the value to Light Year unit
         """
-        return self.value*self.__value_convert_to_light_year
+        return self.__operator(self.__value_convert_to_light_year)
 
 class Meter(Length):
     def __init__(self, value):

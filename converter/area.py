@@ -1,6 +1,6 @@
 # Area units
-
-from converter.unit import Unit
+import numpy as np
+from .unit import Unit
 
 class Area(Unit):
     """
@@ -9,34 +9,41 @@ class Area(Unit):
     """
     def __init__(self, value, *args):
         super(Area, self).__init__(value)
-        self.__value_convert_to_square_meter = args[0]
-        self.__value_convert_to_hectare = args[1]
-        self.__value_convert_to_square_mile = args[2]
-        self.__value_convert_to_square_yard = args[3]
-        self.__value_convert_to_square_foot = args[4]
-        self.__value_convert_to_square_inch = args[5]
-        self.__value_convert_to_acre = args[6]
+        if args:
+            self.__value_convert_to_square_meter = args[0]
+            self.__value_convert_to_hectare = args[1]
+            self.__value_convert_to_square_mile = args[2]
+            self.__value_convert_to_square_yard = args[3]
+            self.__value_convert_to_square_foot = args[4]
+            self.__value_convert_to_square_inch = args[5]
+            self.__value_convert_to_acre = args[6]
+
+    def __operator(self, convert_value):
+        if isinstance(self.value, list):
+            self.value = np.array(self.value)
+            return list(self.value * convert_value)
+        return self.value*convert_value
 
     def to_square_meter(self):
-        return self.value*self.__value_convert_to_square_meter
+        return self.__operator(self.__value_convert_to_square_meter)
 
     def to_hectare(self):
-        return self.value*self.__value_convert_to_hectare
+        return self.__operator(self.__value_convert_to_hectare)
 
     def to_square_mile(self):
-        return self.value*self.__value_convert_to_square_mile
+        return self.__operator(self.__value_convert_to_square_mile)
 
     def to_square_yard(self):
-        return self.value*self.__value_convert_to_square_yard
+        return self.__operator(self.__value_convert_to_square_yard)
 
     def to_square_foot(self):
-        return self.value*self.__value_convert_to_square_foot
+        return self.__operator(self.__value_convert_to_square_foot)
 
     def to_square_inch(self):
-        return self.value*self.__value_convert_to_square_inch
+        return self.__operator(self.__value_convert_to_square_inch)
 
     def to_acre(self):
-        return self.value*self.__value_convert_to_acre
+        return self.__operator(self.__value_convert_to_acre)
 
 
 class SquareMeter(Area):

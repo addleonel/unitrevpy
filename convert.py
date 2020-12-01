@@ -13,12 +13,3 @@ from converter.weight import (
     Kilogram, Gram, Milligram, MetricTon, LongTon, ShortTon, Pound,
     Ounce, Carat, AtomicMassUnit
 )
-
-if __name__ == '__main__':
-
-    # num = Length(23, 'meter')
-    # print(num.__to_yard())
-    number = Meter(23)
-    print(number.to_yard())
-    print(number.to_foot())
-    print(number.to_mile())

@@ -17,19 +17,31 @@ Specifically contains:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kilogram, Gram, Millimeter, Metric Ton, Long Ton, Short Ton, Pound, Ounce, Carat, and Atomic Mass Unit (Dalton).
 ## installation
 ```
-    pip install unitrevpy
+pip install unitrevpy
 ```
 or
 ```
-    python -m pip install unitrevpy
+python -m pip install unitrevpy
 ```
 To import it into a script:
 ```python
 from unitrevpy import convert
 ```
+or
+```python
+from unitrevpy.convert import Celsius
+```
+
 ## Example
+using a integer or float arguments:
 ```python
 from unitrevpy import convert as c
 y = c.Meter(23).to_yard()
 m = c.Meter(4500).to_mile()
+```
+Using list, tuple, or set:
+```python
+from unitrevpy.convert import Kelvin
+kelvin = [23, 20, 16]
+celsius = Kelvin(kelvin).to_celsius()
 ```

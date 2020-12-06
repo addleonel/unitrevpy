@@ -4,15 +4,15 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="uconvert",
-    version="0.0.2",
+    name="unitrevpy",
+    version="0.0.3",
     license="MIT",
     author="A. D. Leonel",
     author_email="adleonel@gmail.com",
     description="This contains common unit conversions",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/addleonel/unit-converter",
+    url="https://github.com/addleonel/unitrevpy",
     packages=setuptools.find_packages(),
     install_requires=['numpy'],
     keywords=['unit', 'convert', 'conversion'],

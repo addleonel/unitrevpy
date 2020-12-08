@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="unitrevpy",
-    version="0.0.3",
+    version="0.0.4",
     license="MIT",
     author="A. D. Leonel",
     author_email="adleonel@gmail.com",

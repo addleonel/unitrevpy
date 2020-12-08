@@ -1,6 +1,6 @@
-# Unitrevpy
+# unitrevpy
 ## Summary
-Unitrevpy is a package that contains common unit conversions such as  __length__, __temperature__, __area__, __volume__, __time__, and __weight__.
+unitrevpy is a package that contains common unit conversions such as  __length__, __temperature__, __area__, __volume__, __time__, and __weight__.
 ## What units does it contain?
 Specifically contains:
 * #### Lenght
@@ -13,7 +13,7 @@ Specifically contains:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cubic Meter, Cubic Kilometer, Cubic Centimeter, Cubic Millimeter, Liter, Milliliter, US Gallon, US Quart, US Pint, US Cup, US Fluid Ounce, US Table Spoon, US Tea Spoon, Imperial Gallon, Imperial Quart, Imperial Pint, Imperial Fluid Ounce, Imperial Table Spoon, Imperial Tea Spoon, Cubic Mile, Cubic Yard, cubic Foot, and Cubic Inch.
 * #### Time
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second, Minute, Hour, Day, Week, Month, and Year.
-* #### weight
+* #### Weight
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kilogram, Gram, Millimeter, Metric Ton, Long Ton, Short Ton, Pound, Ounce, Carat, and Atomic Mass Unit (Dalton).
 ## installation
 ```
@@ -33,7 +33,7 @@ from unitrevpy.convert import Celsius
 ```
 
 ## Example
-using a integer or float arguments:
+Using an integer or float argument:
 ```python
 from unitrevpy import convert as c
 y = c.Meter(23).to_yard()

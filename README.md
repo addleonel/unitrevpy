@@ -3,18 +3,13 @@
 unitrevpy is a package that contains common unit conversions such as  __length__, __temperature__, __area__, __volume__, __time__, and __weight__.
 ## What units does it contain?
 Specifically contains:
-* #### Lenght
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meter, Yard, Mile, Foot, Inch, and Light Year.
-* #### Temperature
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Celsius, Kelvin, and Fahrenheit
-* #### Area
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Square meter, Hectare, Square Mile, Square Yard, Square Foot, Square Inch, and Acre.
-* #### Volume
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cubic Meter, Cubic Kilometer, Cubic Centimeter, Cubic Millimeter, Liter, Milliliter, US Gallon, US Quart, US Pint, US Cup, US Fluid Ounce, US Table Spoon, US Tea Spoon, Imperial Gallon, Imperial Quart, Imperial Pint, Imperial Fluid Ounce, Imperial Table Spoon, Imperial Tea Spoon, Cubic Mile, Cubic Yard, cubic Foot, and Cubic Inch.
-* #### Time
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second, Minute, Hour, Day, Week, Month, and Year.
-* #### Weight
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kilogram, Gram, Millimeter, Metric Ton, Long Ton, Short Ton, Pound, Ounce, Carat, and Atomic Mass Unit (Dalton).
+-------------|-------------
+| **Lenght** |Meter, Yard, Mile, Foot, Inch, and Light Year.|
+|**Temperature**|Celsius, Kelvin, and Fahrenheit.|
+|**Area**|Square meter, Hectare, Square Mile, Square Yard, Square Foot, Square Inch, and Acre.|
+|**Volume**|Cubic Meter, Cubic Kilometer, Cubic Centimeter, Cubic Millimeter, Liter, Milliliter, US Gallon, US Quart, US Pint, US Cup, US Fluid Ounce, US Table Spoon, US Tea Spoon, Imperial Gallon, Imperial Quart, Imperial Pint, Imperial Fluid Ounce, Imperial Table Spoon, Imperial Tea Spoon, Cubic Mile, Cubic Yard, cubic Foot, and Cubic Inch.|
+|**Time**|Second, Minute, Hour, Day, Week, Month, and Year.|
+|**Weight**|Kilogram, Gram, Millimeter, Metric Ton, Long Ton, Short Ton, Pound, Ounce, Carat, and Atomic Mass Unit (Dalton).|
 ## installation
 ```
 pip install unitrevpy

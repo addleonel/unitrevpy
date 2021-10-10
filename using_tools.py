@@ -1,10 +1,11 @@
 from unitrevpy import convert as c
-
+import numpy as np
 if __name__ == '__main__':
     # length
     num = c.Mile((23.34, 23.34, 12.3))
-    print(num.to_meter())
+    print(num.meter())
     print("-"*30)
+    
     # temperature
     tem = c.Fahrenheit({34, 12, 12, 12, 12, 12, 25, 34}).to_fahrenheit()
     print(tem)

@@ -61,9 +61,19 @@ class Weight(Unit):
 class Kilogram(Weight):
 
     def __init__(self, value):
-        super(Kilogram, self).__init__(value,
-                                       1.0, 1000.0, 1000000.0, 0.001, 0.0009842073, 0.0011023122, 2.2046244202,
-                                       35.273990723, 5000.0, 6.022136652E+26)
+        super(Kilogram, self).__init__(
+            value,
+            1.0,
+            1000.0,
+            1000000.0,
+            0.001,
+            0.0009842073,
+            0.0011023122,
+            2.2046244202,
+            35.273990723,
+            5000.0,
+            6.022136652E+26
+        )
 
 class Gram(Weight):
 

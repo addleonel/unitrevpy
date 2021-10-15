@@ -28,6 +28,8 @@ class Unit:
 
     def __init__(self, value, prefix):
         self.value = value
+        if prefix not in self.PREFIX.keys():
+            raise KeyError(f'\'{prefix}\' is not in the known prefixes: {[pf for pf in self.PREFIX.keys()]}')
         self.prefix = prefix
 
     def __repr__(self):

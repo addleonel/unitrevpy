@@ -85,6 +85,7 @@ class Meter(Length):
             light_year=1.057008707E-16,
         )
 
+
 class Yard(Length):
     def __init__(self, value, prefix=None):
         super(Yard, self).__init__(
@@ -98,6 +99,7 @@ class Yard(Length):
             inch=36.0,
             light_year=9.665287622E-17
         )
+
 
 class Mile(Length):
     def __init__(self, value, prefix=None):
@@ -113,6 +115,7 @@ class Mile(Length):
             light_year=1.701096963E-13
         )
 
+
 class Foot(Length):
     def __init__(self, value, prefix=None):
         super(Foot, self).__init__(
@@ -127,6 +130,7 @@ class Foot(Length):
             light_year=3.22176254E-17
         )
 
+
 class Inch(Length):
     def __init__(self, value, prefix=None):
         super(Inch, self).__init__(
@@ -140,6 +144,7 @@ class Inch(Length):
             inch=1.0,
             light_year=2.684802117E-18
         )
+
 
 class LightYear(Length):
     def __init__(self, value, prefix=None):
